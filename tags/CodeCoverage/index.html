@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    <title>Tag: CodeCoverage | SharpEdge Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="do { code(); } while (true)">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="SharpEdge Blog">
+<meta property="og:url" content="http://blog.sharpedge.ninja/tags/CodeCoverage/index.html">
+<meta property="og:site_name" content="SharpEdge Blog">
+<meta property="og:description" content="do { code(); } while (true)">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SharpEdge Blog">
+<meta name="twitter:description" content="do { code(); } while (true)">
+<meta name="twitter:creator" content="@SharpEdgeCode">
+<meta name="twitter:site" content="@SharpEdgeCode">
+<link rel="publisher" href="https://plus.google.com/u/0/+FabioTodaro_SharpEdge">
+<meta property="fb:admins" content="785659018">
+<meta property="fb:app_id" content="150984268667824">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="SharpEdge Blog" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.png">
+    
+
+    <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab" rel="stylesheet">
+    <link rel="stylesheet" href="/vendor/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/vendor/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/vendor/fancybox/jquery.fancybox.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-46734442-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">SharpEdge Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/about-me">About Me</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="https://www.gravatar.com/avatar/229cb47d9499f01eaaef5ff604ba4a79">
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/about-me">About Me</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <div id="avatar">
+              <img src="https://www.gravatar.com/avatar/229cb47d9499f01eaaef5ff604ba4a79?s=128">
+            </div>
+            <h2 id="name">Fabio Todaro</h2>
+            <h3 id="title">DevOps &amp; Solutions Architect</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Turin, Italy</span>
+            <a id="follow" target="_blank" href="https://github.com/SharpEdgeMarshall/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                11
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                23
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/SharpEdgeMarshall" target="_blank" title="github" class="tooltip">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.facebook.com/SharpEdgeMarshall" target="_blank" title="facebook" class="tooltip">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://plus.google.com/u/0/+FabioTodaro_SharpEdge/posts" target="_blank" title="google" class="tooltip">
+                            <i class="fa fa-google"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/SharpEdgeCode" target="_blank" title="twitter" class="tooltip">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.linkedin.com/in/sharpedge" target="_blank" title="linkedin" class="tooltip">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://stackoverflow.com/users/3572689/sharpedge" target="_blank" title="stackoverflow" class="tooltip">
+                            <i class="fa fa-stackoverflow"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://instagram.com/sharpedgemarshall/" target="_blank" title="instagram" class="tooltip">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class="tooltip">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main">
+<div class="timeline timeline-wrap">
+    <div class="timeline-row timeline-row-major">
+        <span class="node"><i class="fa fa-tag"></i></span>
+        <h1 class="title">#CodeCoverage</h1>
+    </div>
+    
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
+                
+    
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/2015/03/21/travis-ci-and-coveralls-with-actionscript-3/">Travis CI and Coveralls with ActionScript 3</a>
+        </h1>
+    
+
+                <div class="article-meta">
+                    
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2015/03/21/travis-ci-and-coveralls-with-actionscript-3/">
+            <time datetime="2015-03-21T11:50:51.000Z" itemprop="datePublished">2015-03-21</time>
+        </a>
+    </div>
+
+
+                    
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/DevOps/">DevOps</a>
+    </div>
+
+                    
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/AS3/">AS3</a>, <a class="tag-link" href="/tags/ActionScript/">ActionScript</a>, <a class="tag-link" href="/tags/CodeCoverage/">CodeCoverage</a>, <a class="tag-link" href="/tags/Coveralls/">Coveralls</a>, <a class="tag-link" href="/tags/Maven/">Maven</a>, <a class="tag-link" href="/tags/Travis-CI/">Travis CI</a>
+    </div>
+
+                </div>
+            </div>
+        </div>
+    
+</div>
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/08/14/EL-Wire-car-installation/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/EL-Wire_tmb.png)" alt="EL Wire Car doors installation" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-title"><a href="/2017/08/14/EL-Wire-car-installation/" class="title">EL Wire Car doors installation</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Car/">Car</a></p>
+                            <p class="item-date"><time datetime="2017-08-14T13:35:35.000Z" itemprop="datePublished">2017-08-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/02/25/SHA1-is-dead-long-life-to-SHA3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/SHA-1.png)" alt="SHA1 is broken, long life to SHA3" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-title"><a href="/2017/02/25/SHA1-is-dead-long-life-to-SHA3/" class="title">SHA1 is broken, long life to SHA3</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Web/">Web</a></p>
+                            <p class="item-date"><time datetime="2017-02-25T14:30:19.000Z" itemprop="datePublished">2017-02-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/10/08/Learn-AWS-Account-Security/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/AWS-security_tmb.png)" alt="Learn AWS: Account Security" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-title"><a href="/2016/10/08/Learn-AWS-Account-Security/" class="title">Learn AWS: Account Security</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/DevOps/">DevOps</a></p>
+                            <p class="item-date"><time datetime="2016-10-07T22:00:00.000Z" itemprop="datePublished">2016-10-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/10/03/Learn-AWS-Getting-Started/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/AWS-start_tmb.png)" alt="Learn AWS: Getting Started" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-title"><a href="/2016/10/03/Learn-AWS-Getting-Started/" class="title">Learn AWS: Getting Started</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/DevOps/">DevOps</a></p>
+                            <p class="item-date"><time datetime="2016-10-02T22:00:00.000Z" itemprop="datePublished">2016-10-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/10/02/Learn-AWS/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/AWS_tmb.png)" alt="Learn AWS" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-title"><a href="/2016/10/02/Learn-AWS/" class="title">Learn AWS</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/DevOps/">DevOps</a></p>
+                            <p class="item-date"><time datetime="2016-10-01T22:00:00.000Z" itemprop="datePublished">2016-10-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Car/">Car</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code/">Code</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DevOps/">DevOps</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><span class="category-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/AGAL/" style="font-size: 10px;">AGAL</a> <a href="/tags/AS3/" style="font-size: 15px;">AS3</a> <a href="/tags/AWS/" style="font-size: 20px;">AWS</a> <a href="/tags/ActionScript/" style="font-size: 15px;">ActionScript</a> <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Away3D/" style="font-size: 10px;">Away3D</a> <a href="/tags/Cloud/" style="font-size: 20px;">Cloud</a> <a href="/tags/CodeCoverage/" style="font-size: 10px;">CodeCoverage</a> <a href="/tags/Coveralls/" style="font-size: 10px;">Coveralls</a> <a href="/tags/EL-Wire/" style="font-size: 10px;">EL Wire</a> <a href="/tags/Ghost/" style="font-size: 20px;">Ghost</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/MFA/" style="font-size: 10px;">MFA</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Openshift/" style="font-size: 15px;">Openshift</a> <a href="/tags/Security/" style="font-size: 10px;">Security</a> <a href="/tags/Shaders/" style="font-size: 10px;">Shaders</a> <a href="/tags/StaticSite/" style="font-size: 10px;">StaticSite</a> <a href="/tags/Travis-CI/" style="font-size: 10px;">Travis CI</a> <a href="/tags/Tuning/" style="font-size: 10px;">Tuning</a> <a href="/tags/Veloster/" style="font-size: 10px;">Veloster</a> <a href="/tags/Virtualization/" style="font-size: 10px;">Virtualization</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 Fabio Todaro<br>
+            <\> with <i class="fa fa-heart animated infinite pulse"></i> using <a href="http://hexo.io/" target="_blank" title="tooltip.Hexo">Hexo</a>
+        </\></div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+        this.page.identifier = '';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'sharpedgeblog' + '.disqus.com/count.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    
+    
+        <script src="/js/GithubRepoWidget.js"></script>
+    
+    
+      <!-- Go to www.addthis.com/dashboard to customize your tools -->
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-579a483ec99bd0ac"></script>
+    
+    
+        <script src="/js/readingTime.min.js"></script>
+    
+
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
