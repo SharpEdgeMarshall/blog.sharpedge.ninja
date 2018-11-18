@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.sharpedge.ninja/"/>
-  <updated>2017-12-05T12:17:21.442Z</updated>
+  <updated>2018-11-18T13:24:54.991Z</updated>
   <id>http://blog.sharpedge.ninja/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>K8s tips: Manually launch a Job from CronJob</title>
+    <link href="http://blog.sharpedge.ninja/2018/11/18/K8s-tips-Run-Job-from-CronJob/"/>
+    <id>http://blog.sharpedge.ninja/2018/11/18/K8s-tips-Run-Job-from-CronJob/</id>
+    <published>2018-11-17T23:00:00.000Z</published>
+    <updated>2018-11-18T13:24:54.991Z</updated>
+    
+    <content type="html"><![CDATA[<p>You just applied your new CronJob to Kubernetes and now would you like to try it?</p><p>You need to run your CronJob one time out of schedule?</p><a id="more"></a><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">batch/v1beta1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">CronJob</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">my-cj</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  schedule:</span> <span class="string">"0 08 * * SAT"</span></span><br><span class="line"><span class="attr">  jobTemplate:</span></span><br><span class="line"><span class="attr">    spec:</span></span><br><span class="line"><span class="attr">      template:</span></span><br><span class="line"><span class="attr">        spec:</span></span><br><span class="line"><span class="attr">          containers:</span></span><br><span class="line"><span class="attr">            - name:</span> <span class="string">my-cj-pod</span></span><br><span class="line"><span class="attr">              image:</span> <span class="string">"my-cj-image:latest"</span></span><br></pre></td></tr></table></figure><p>The first thing that could come to your mind is to temporarily change the schedule to make it run ASAP, but there is a smarter way to create a Job defined in a CronJob.</p><h2 id="solution">Solution</h2><p>Kubectl v1.10.1+ introduced the <code>kubectl create job</code> command with a <code>--from</code> option that actually accepts only a CronJob.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl -n my-ns create job --from=cronjob/my-cj my-job-name</span><br></pre></td></tr></table></figure><p>This command will instantly create a Job named <code>my-job-name</code> from the jobTemplate of the CronJob named <code>my-cj</code>.</p>]]></content>
+    
+    <summary type="html">
+    
+      Launch Job from CronJob with kubectl
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://blog.sharpedge.ninja/categories/DevOps/"/>
+    
+    
+      <category term="k8s" scheme="http://blog.sharpedge.ninja/tags/k8s/"/>
+    
+      <category term="kubernetes" scheme="http://blog.sharpedge.ninja/tags/kubernetes/"/>
+    
+      <category term="tips" scheme="http://blog.sharpedge.ninja/tags/tips/"/>
+    
+  </entry>
   
   <entry>
     <title>EL Wire Car doors installation</title>
