@@ -122,11 +122,11 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 a {
-  color: #fdbc04;
+  color: #a6e22d;
   text-decoration: none;
 }
 a:visited {
-  color: #fdbc04;
+  color: #a6e22d;
 }
 code {
   margin: 0 2px;
@@ -215,7 +215,7 @@ code {
 .archive-article-header a:visited:hover,
 .layout-wrap-inner.tag-cloud a:visited:hover,
 .timeline-row .content h1 a:visited:hover {
-  color: #fdbc04;
+  color: #a6e22d;
 }
 .article-meta,
 .archive-year,
@@ -347,7 +347,7 @@ code {
   color: #565a5f;
 }
 #header a:hover {
-  color: #fdbc04;
+  color: #a6e22d;
 }
 .header-inner #logo,
 #main-nav,
@@ -563,7 +563,7 @@ code {
 .search-form-input.ins-search-input:focus,
 .search-form-input.st-ui-search-input:focus,
 .search-form-input.st-default-search-input:focus {
-  border-color: #fdbc04 !important;
+  border-color: #a6e22d !important;
 }
 .search-form-input::-webkit-search-results-decoration,
 .search-form-input.ins-search-input::-webkit-search-results-decoration,
@@ -648,14 +648,14 @@ code {
 #profile .inner .base-info #avatar {
   text-align: center;
   display: block;
-  border: 5px solid #fdbc04;
+  border: 5px solid #a6e22d;
   border-radius: 50%;
   width: 128px;
   height: 128px;
   margin: 0 auto 20px auto;
   position: relative;
   overflow: hidden;
-  background: #fdbc04;
+  background: #a6e22d;
   -webkit-box-orient: horizontal;
   -webkit-box-pack: center;
   -webkit-box-align: center;
@@ -678,9 +678,9 @@ code {
 }
 #profile .inner .base-info #avatar:hover {
   background: #fff;
-  border: 5px solid #fdbc04;
-  -webkit-box-shadow: 0 0 1.5em #fdbc04;
-  box-shadow: 0 0 1.5em #fdbc04;
+  border: 5px solid #a6e22d;
+  -webkit-box-shadow: 0 0 1.5em #a6e22d;
+  box-shadow: 0 0 1.5em #a6e22d;
   -webkit-animation: profilepic 0.15s linear infinite alternate;
   -moz-animation: profilepic 0.15s linear infinite alternate;
   -ms-animation: profilepic 0.15s linear infinite alternate;
@@ -757,7 +757,7 @@ code {
   line-height: 40px;
   text-align: center;
   margin: 20px auto 10px;
-  background: #fdbc04;
+  background: #a6e22d;
   border-radius: 20px;
   -webkit-transition: 0.2s ease;
   -moz-transition: 0.2s ease;
@@ -765,7 +765,7 @@ code {
   transition: 0.2s ease;
 }
 #profile .inner .base-info #follow:hover {
-  background: #ffcd15;
+  background: #b7f33e;
 }
 #profile .inner .article-info {
   padding: 0px;
@@ -897,7 +897,7 @@ a.article-title:visited {
   color: #565a5f;
 }
 a.article-title:hover {
-  color: #fdbc04;
+  color: #a6e22d;
 }
 @media screen and (max-width: 559px) {
   .article-title {
@@ -932,7 +932,7 @@ a.article-title:hover {
   color: #565a5f;
 }
 .article-meta a:hover {
-  color: #fdbc04;
+  color: #a6e22d;
 }
 .article-meta .article-eta {
   float: right;
@@ -979,7 +979,7 @@ a.article-title:hover {
   margin: 1.3em 0 0 0;
 }
 .article-entry a {
-  color: #fdbc04;
+  color: #a6e22d;
   text-decoration: none;
 }
 .article-entry a:hover {
@@ -1096,10 +1096,10 @@ a.article-title:hover {
   text-decoration: none;
 }
 .article-more-link a:hover {
-  background: #fdbc04;
+  background: #a6e22d;
   color: #fff;
   text-decoration: none;
-  text-shadow: 0 1px #cc9702;
+  text-shadow: 0 1px #88be1a;
 }
 .article-footer {
   font-size: 0.85em;
@@ -1406,7 +1406,7 @@ ol.toc {
   margin: 40px 0;
 }
 #comments a {
-  color: #fdbc04;
+  color: #a6e22d;
 }
 .archives:before,
 .archives:after {
@@ -1451,7 +1451,7 @@ ol.toc {
 .archive-category-wrap .archive-year:hover,
 .archive-tag-wrap .archive-year:hover,
 .layout-title .archive-year:hover {
-  color: #fdbc04;
+  color: #a6e22d;
 }
 @media screen and (max-width: 559px) {
   .layout-wrap-inner {
@@ -1618,7 +1618,7 @@ ol.toc {
 }
 #page-nav a:hover {
   color: #fff;
-  background: #fdbc04;
+  background: #a6e22d;
 }
 #page-nav .page-number {
   display: inline-block;
@@ -1671,7 +1671,7 @@ ol.toc {
   border-radius: 50%;
   margin: 11px 0 0 -8px;
   display: inline-block;
-  background-color: #fdbc04;
+  background-color: #a6e22d;
 }
 .timeline-row .content {
   margin-left: 25px;
@@ -1731,7 +1731,7 @@ ol.toc {
   margin-bottom: 0;
 }
 #footer a {
-  color: #fdbc04;
+  color: #a6e22d;
   text-decoration: none;
 }
 #footer a:hover {
@@ -1970,7 +1970,7 @@ ol.toc {
   text-transform: uppercase;
 }
 #recent-post li .item-inner .item-category a {
-  color: #fdbc04;
+  color: #a6e22d;
 }
 #recent-post li .item-inner .item-category a:hover {
   color: #333;
@@ -1998,7 +1998,7 @@ ol.toc {
   opacity: 0.8;
 }
 #recent-post li:hover .item-title a {
-  color: #fdbc04;
+  color: #a6e22d;
 }
 .ins-search {
   display: none;
