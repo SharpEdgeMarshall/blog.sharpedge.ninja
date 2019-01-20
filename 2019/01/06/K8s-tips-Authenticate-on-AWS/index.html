@@ -3,18 +3,22 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>Tag: Cloud | SharpEdge Blog</title>
+    <title>K8s tips: Authenticate on AWS with Kube2IAM | SharpEdge Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="do { code(); } while (true)">
+    <meta name="description" content="How to automagically authenticate your pods on AWS and secure your cluster using Kube2IAM">
+<meta name="keywords" content="k8s,kubernetes,tips,security">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="SharpEdge Blog">
-<meta property="og:url" content="http://blog.sharpedge.ninja/tags/Cloud/index.html">
+<meta property="og:title" content="K8s tips: Authenticate on AWS with Kube2IAM">
+<meta property="og:url" content="http://blog.sharpedge.ninja/2019/01/06/K8s-tips-Authenticate-on-AWS/index.html">
 <meta property="og:site_name" content="SharpEdge Blog">
-<meta property="og:description" content="do { code(); } while (true)">
+<meta property="og:description" content="How to automagically authenticate your pods on AWS and secure your cluster using Kube2IAM">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://blog.sharpedge.ninja/images/k8s-tips.png">
+<meta property="og:updated_time" content="2019-01-20T13:19:46.434Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SharpEdge Blog">
-<meta name="twitter:description" content="do { code(); } while (true)">
+<meta name="twitter:title" content="K8s tips: Authenticate on AWS with Kube2IAM">
+<meta name="twitter:description" content="How to automagically authenticate your pods on AWS and secure your cluster using Kube2IAM">
+<meta name="twitter:image" content="http://blog.sharpedge.ninja/images/k8s-tips.png">
 <meta name="twitter:creator" content="@SharpEdgeCode">
 <meta name="twitter:site" content="@SharpEdgeCode">
 <link rel="publisher" href="https://plus.google.com/u/0/+FabioTodaro_SharpEdge">
@@ -244,122 +248,161 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#Cloud</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-K8s-tips-Authenticate-on-AWS" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/images/k8s-tips.png" class="article-banner">
+	
+
+
+
+        
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/08/Learn-AWS-Account-Security/">Learn AWS: Account Security</a>
+        <h1 class="article-title" itemprop="name">
+            K8s tips: Authenticate on AWS with Kube2IAM
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/10/08/Learn-AWS-Account-Security/">
-            <time datetime="2016-10-07T22:00:00.000Z" itemprop="datePublished">2016-10-08</time>
+        <a href="/2019/01/06/K8s-tips-Authenticate-on-AWS/">
+            <time datetime="2019-01-05T23:00:00.000Z" itemprop="datePublished">2019-01-06</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/DevOps/">DevOps</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/AWS/">AWS</a>, <a class="tag-link" href="/tags/Cloud/">Cloud</a>, <a class="tag-link" href="/tags/MFA/">MFA</a>
+        <a class="tag-link" href="/tags/k8s/">k8s</a>, <a class="tag-link" href="/tags/kubernetes/">kubernetes</a>, <a class="tag-link" href="/tags/security/">security</a>, <a class="tag-link" href="/tags/tips/">tips</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                        
+  <div class="article-eta">
+     <div class="eta"></div>
+  </div>
+
+
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/03/Learn-AWS-Getting-Started/">Learn AWS: Getting Started</a>
-        </h1>
-    
+            </header>
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>When the pods in your kubernetes cluster need to access AWS, you have different solutions to authenticate, based on two factors: where the cluster is deployed and the grade of security you are looking for.</p>
+<a id="more"></a>
+<h4 id="k8s-running-outside-aws">K8s running outside AWS</h4>
+<p>In case the cluster is deployed <strong>outside</strong> AWS you have to:</p>
+<ul>
+<li>Create an IAM user</li>
+<li>Mount the <code>.aws/credentials</code> file or pass the <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code> env vars, of the IAM user, to the Pod</li>
+</ul>
+<h4 id="k8s-running-inside-aws">K8s running inside AWS</h4>
+<p>In case the cluster is deployed <strong>inside</strong> AWS (on EC2 instances), your solutions increase because you have access to the <em>AWS metadata service</em>!</p>
+<h6 id="aws-metadata-service">AWS metadata service</h6>
+<p>Almost any library written to interact with AWS try different methods to authenticate in sequence and the last, but not least, is using AWS metadata service to get a temporary token of the <em>IAM role</em> associated to the <em>EC2 Instance</em>.</p>
+<p>This means that you could simply deploy your Pod without credentials and it will automagically authenticate using the <em>IAM Role</em> that you must have previously associated with the <em>EC2 instances</em> of your K8s nodes.</p>
+<center><h3 style="color:orange">Little warning</h3></center>
+<p><em>Based on how kubernetes works, if you don’t make use of <code>taint</code>/<code>tolerations</code>/<code>nodeSelectors</code>/ etc…, your Pod could be moved to any other Node if restarted for any reason, so be sure to assign the IAM role to all Nodes that could be elected to run your Pod.</em></p>
+<center><h2 style="color:red">BIG WARNING</h2></center>
+<p><strong><em>This approach, that seems so cool and makes you feel living in a world full of unicorns and rainbows, in reality, is the worst thing that you could do to the security of your AWS account.<br>
+Now ANY Pod running inside your cluster is able to access AWS using the <em>IAM Role</em> assigned to the Node!<br>
+I don’t think I have to explain why this is so bad.</em></strong></p>
+<h1>Kube2IAM to the Rescue</h1>
+<p><a href="https://github.com/jtblin/kube2iam" target="_blank" rel="noopener">Kube2IAM Github</a></p>
+<p><a href="https://github.com/helm/charts/tree/master/stable/kube2iam" target="_blank" rel="noopener">Kube2IAM Helm Chart Github</a></p>
+<h4 id="setup">Setup</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">helm install stable/kube2iam</span><br></pre></td></tr></table></figure>
+<p>Kube2IAM, once installed, runs inside your cluster as a daemonset and does a simple thing:
+Intercepts all Pods requests to the AWS Metadata Service and forwards a request for a specific <em>IAM Role</em>.</p>
+<p>To make it works there are some mandatory configs on the chart</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">host:</span></span><br><span class="line"><span class="attr">  iptables:</span> <span class="literal">true</span> <span class="comment"># Add the iptables rule to catch AWS Metadata requests</span></span><br><span class="line"><span class="attr">  interface:</span> <span class="string">weave/cali+/kube-bridge/..</span> <span class="comment"># Specify your virtual newtork interface</span></span><br></pre></td></tr></table></figure>
+<p>and on the AWS Account
+Allow Node role to assume other roles:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"Version"</span>: <span class="string">"2012-10-17"</span>,</span><br><span class="line">  <span class="attr">"Statement"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"Action"</span>: [</span><br><span class="line">        <span class="string">"sts:AssumeRole"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"Effect"</span>: <span class="string">"Allow"</span>,</span><br><span class="line">      <span class="attr">"Resource"</span>: <span class="string">"*"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Add a Trust Relationship with the Node role on the role that will be assumed.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"Version"</span>: <span class="string">"2012-10-17"</span>,</span><br><span class="line">  <span class="attr">"Statement"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"Sid"</span>: <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"Effect"</span>: <span class="string">"Allow"</span>,</span><br><span class="line">      <span class="attr">"Principal"</span>: &#123;</span><br><span class="line">        <span class="attr">"Service"</span>: <span class="string">"ec2.amazonaws.com"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"Action"</span>: <span class="string">"sts:AssumeRole"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"Sid"</span>: <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"Effect"</span>: <span class="string">"Allow"</span>,</span><br><span class="line">      <span class="attr">"Principal"</span>: &#123;</span><br><span class="line">        <span class="attr">"AWS"</span>: <span class="string">"arn:aws:iam::123456789012:role/kubernetes-node-role"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"Action"</span>: <span class="string">"sts:AssumeRole"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="usage">Usage</h4>
+<p>Now you have to simply indicate the role a Pod can assume using a simple annotation:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">my-pod</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">  replicas:</span> <span class="number">3</span></span><br><span class="line"><span class="attr">  template:</span></span><br><span class="line"><span class="attr">    metadata:</span></span><br><span class="line"><span class="attr">      annotations:</span></span><br><span class="line">        <span class="string">iam.amazonaws.com/role:</span> <span class="string">role-arn</span></span><br></pre></td></tr></table></figure>
+<h4 id="restrictions">Restrictions</h4>
+<p>You can indicate a default role that all Pods without annotation should assume, using an argument on Kube2IAM, this way you’ll prevent the use of the Node’s one.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">extraArgs:</span></span><br><span class="line"><span class="attr">  default-role:</span> <span class="string">app-default</span></span><br></pre></td></tr></table></figure>
+<p>You can also restrict the roles that can be assumed inside a Namespace using an additional argument on Kube2IAM to enable it, and specifing the whitelist of roles with an annotation on the Namespace.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">extraArgs:</span></span><br><span class="line"><span class="attr">  namespace-restrictions:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Namespace</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  annotations:</span></span><br><span class="line">    <span class="string">iam.amazonaws.com/allowed-roles:</span> <span class="string">|</span></span><br><span class="line"><span class="string">      ["my-custom-path/*"]</span></span><br><span class="line"><span class="string"></span><span class="attr">  name:</span> <span class="string">default</span></span><br></pre></td></tr></table></figure>
+<p>Your Node’s role now is safe and you have a capillary control on what AWS permissions each Pod will get, as bonus you have also automatic key rotation.</p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/03/Learn-AWS-Getting-Started/">
-            <time datetime="2016-10-02T22:00:00.000Z" itemprop="datePublished">2016-10-03</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/DevOps/">DevOps</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/AWS/">AWS</a>, <a class="tag-link" href="/tags/Cloud/">Cloud</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/10/02/Learn-AWS/">Learn AWS</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/02/Learn-AWS/">
-            <time datetime="2016-10-01T22:00:00.000Z" itemprop="datePublished">2016-10-02</time>
-        </a>
-    </div>
+        
+        <footer class="article-footer">
+          
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/DevOps/">DevOps</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/AWS/">AWS</a>, <a class="tag-link" href="/tags/Cloud/">Cloud</a>, <a class="tag-link" href="/tags/Virtualization/">Virtualization</a>
-    </div>
 
-                </div>
-            </div>
-        </div>
-    
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <div class="addthis_sharing_toolbox"></div>
+
 </div>
+
+
+          
+            
+    
+        <a href="http://blog.sharpedge.ninja/2019/01/06/K8s-tips-Authenticate-on-AWS/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.sharpedge.ninja/2019/01/06/K8s-tips-Authenticate-on-AWS/">Comments</a>
+    
+
+        </footer>
+        
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/11/18/K8s-tips-Run-Job-from-CronJob/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">K8s tips: Manually launch a Job from CronJob</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
 </section>
             
                 <aside id="sidebar">
@@ -516,11 +559,13 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = '';
+            this.page.url = 'http://blog.sharpedge.ninja/2019/01/06/K8s-tips-Authenticate-on-AWS/';
+        
+        this.page.identifier = 'K8s-tips-Authenticate-on-AWS';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'sharpedgeblog' + '.disqus.com/count.js';
+        s.src = '//' + 'sharpedgeblog' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
