@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/sharpedge
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://blog.sharpedge.ninja
+  * I am sharpedge (https://keybase.io/sharpedge) on keybase.
+  * I have a public key ASBq779TFl_LnjVS_rXRqnQuE8qWrVFgr3zshpWt16YHmgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01206aefbf53165fcb9e3552feb5d1aa742e13ca96ad5160af7cec8695add7a6079a0a",
+      "host": "keybase.io",
+      "kid": "01206aefbf53165fcb9e3552feb5d1aa742e13ca96ad5160af7cec8695add7a6079a0a",
+      "uid": "ca5ec4f46acfbb6c2b0476599bd89c19",
+      "username": "sharpedge"
+    },
+    "merkle_root": {
+      "ctime": 1550753587,
+      "hash": "864b42442e8dcc110c25de35cbe0233b060f86a4a753c72e1b2ab32d5071ef56fbc5239446272bca4d9015ed2adf160f76bd0ddd01ac05319292219c70e455df",
+      "hash_meta": "e29f51db26e7ec6f498137489e826a19239b6f3d925431cb68e1b6a5915a8f9c",
+      "seqno": 4804904
+    },
+    "service": {
+      "entropy": "kZAmdenaRaK8v/T6p2lvYubg",
+      "hostname": "blog.sharpedge.ninja",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "3.0.0"
+  },
+  "ctime": 1550753598,
+  "expire_in": 504576000,
+  "prev": "7bf7c9fd44130c988ff80829610ca5a71410ca287d5f4765097c74b986ccbf79",
+  "seqno": 18,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgau+/UxZfy541Uv610ap0LhPKlq1RYK987IaVrdemB5oKp3BheWxvYWTESpcCEsQge/fJ/UQTDJiP+AgpYQylpxQQyih9X0dlCXx0uYbMv3nEILMos1p61xC6QaqJnh62a8Q1tZryhyBPxlwACcbCOhQyAgHCo3NpZ8RAf+8Nl8otnHf/SmXV5pPhHnvkBWOW/bNoB1stEcwcJqrx0ccIErOQtoXWh9H/8c6l9MJ8TrFsophqL8Wd+NIiBahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEILzHKsUR4L/826A7EjyBtRyyi6EXItNtTZjJzSQrT64wo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/sharpedge
+
+==================================================================
